@@ -19,6 +19,7 @@ from string import punctuation
 from sklearn import metrics
 from nltk.stem import PorterStemmer
 from imblearn.over_sampling import SMOTE
+nltk.download('stopwords')
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
