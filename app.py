@@ -219,6 +219,7 @@ if selected == "Home":
             st.success('Done!')
 
 if selected == "OCR Image Detection":
+    st.title("OCR Image Detection")
     steammer = nltk.SnowballStemmer("english")
     stopword = set(stopwords.words("english"))
     df = pd.read_csv('twitter_data.csv')
