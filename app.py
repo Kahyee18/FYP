@@ -56,7 +56,7 @@ if uploaded_file is not None:
     # st.write(df_tfidf)
 
     # extract the result to TF-IDF_result.csv
-    df_tfidf.to_csv(r'C:/Users/Acer/Final_Year_Project_2/Hate_Speech_Detection_English/Dataset/TF-IDF_result.csv')
+    df_tfidf.to_csv(r'TF-IDF_result.csv')
 
     # st.write(X_train_cv.shape)
 
