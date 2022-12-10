@@ -209,21 +209,21 @@ if selected == "Modeling in English Language":
         elif choice == 'Logistic Regression':
             st.success('**LR model is selected!**')
             with st.spinner('Please wait...'):
-                time.sleep(5)
+                time.sleep(4)
                 lr_model()
-            st.success('The result of LR model has been successfully displayed !')
+            st.success('The result of LR model has been displayed successfully !')
         elif choice == 'Gaussian Naive Bayes':
             st.success('**GNB model is selected!**')
             with st.spinner('Please wait...'):
-                time.sleep(5)
+                time.sleep(4)
                 gnb_model()
-            st.success('The result of GNB model has been successfully displayed !')
+            st.success('The result of GNB model has been displayed successfully !')
         elif choice == 'Support Vector Machine':
             st.success('**SVM model is selected!**')
             with st.spinner('Please wait...'):
-                time.sleep(5)
+                time.sleep(4)
                 svm_model()
-            st.success('The result of SVM model has been successfully displayed !')
+            st.success('The result of SVM model has been displayed successfully !')
 
 if selected == "Modeling in Malay Language":
     st.title("Model training and building")
@@ -402,21 +402,21 @@ if selected == "Modeling in Malay Language":
         elif choice == 'Logistic Regression':
             st.success('**LR model is selected!**')
             with st.spinner('Please wait...'):
-                time.sleep(5)
+                time.sleep(4)
                 lr_model()
-            st.success('The result of LR model has been successfully displayed !')
+            st.success('The result of LR model has been displayed successfully !')
         elif choice == 'Gaussian Naive Bayes':
             st.success('**GNB model is selected!**')
             with st.spinner('Please wait...'):
-                time.sleep(5)
+                time.sleep(4)
                 gnb_model()
-            st.success('The result of GNB model has been successfully displayed !')
+            st.success('The result of GNB model has been displayed successfully !')
         elif choice == 'Support Vector Machine':
             st.success('**SVM model is selected!**')
             with st.spinner('Please wait...'):
-                time.sleep(5)
+                time.sleep(4)
                 svm_model()
-            st.success('The result of SVM model has been successfully displayed !')
+            st.success('The result of SVM model has been displayed successfully !')
 
 if selected == "OCR Image Detection in English Language":
     st.title("OCR Image Detection in English")
