@@ -1,21 +1,20 @@
 import streamlit as st
 import time
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.corpus import stopwords
 import numpy as np
 import re
 import string
 import nltk
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix
+from sklearn.feature_extraction.text import TfidfVectorizer
+from nltk.corpus import stopwords
 from string import punctuation
 from sklearn import metrics
 from nltk.stem import PorterStemmer
@@ -25,11 +24,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 nltk.download('stopwords')
 
-
 with st.sidebar:
     selected = option_menu("Hate Speech Detection", ["Modeling in English Language", "Modeling in Malay Language", "OCR Image Detection in English Language", "OCR Image Detection in Malay Language"], 
-        icons=['activity', 'activity', 'photo', 'camera'], menu_icon="house", default_index=1)
-
+        icons=['activity', 'activity', 'camera', 'camera'], menu_icon="house", default_index=1)
 
 if selected == "Modeling in English Language":
     st.title("Model training and building")
