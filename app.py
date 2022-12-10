@@ -465,6 +465,10 @@ if selected == "OCR Image Detection in English Language":
         fig, ax = plt.subplots()
         ax.pie(sizes, labels = labels, autopct = '%1.1f%%')
         ax.axis('equal') # Equal aspect ratio ensures the pie chart is circular
-        ax.set_title('Percentages of OCR Result')
-        st.pyplot(fig, ax)
-        st.write('Accuracy of OCR Detection in English Language: {}'.format(ac_score))
+
+        with st.spinner('Please wait...'):
+            time.sleep(5)
+            ax.set_title('Percentages of OCR Result')
+            st.pyplot(fig, ax)
+            st.write('Accuracy of OCR Detection in English Language: {}'.format(ac_score))
+        st.success('The result of OCR detection has been successfully displayed !')
