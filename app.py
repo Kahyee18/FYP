@@ -208,9 +208,8 @@ if selected == "Modeling in English Language":
             st.success('**LR model is selected!**')
             
             progress = st.progress(0)
-            for i in range (100):
                 time.sleep(0.1)
-                progress.progress(i+1)
+                progress.progress()
 
                 lr_model()
             st.success('Done!')
