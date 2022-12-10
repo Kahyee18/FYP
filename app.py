@@ -36,6 +36,8 @@ if selected == "Modeling in English Language":
     uploaded_file = st.file_uploader("Please select dataset in CSV format: ")
 
     if uploaded_file is not None:
+        st.success('File has been uploded successfully !')
+
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
         # st.write(dataframe)
@@ -484,7 +486,7 @@ if selected == "OCR Image Detection in Malay Language":
     st.title("OCR Image Detection in Malay")
     stopword = set(stopwords.words("english"))
     ps = nltk.PorterStemmer()
-    df = pd.read_csv('twitter_train_data.csv')
+    df = pd.read_csv('malay/twitter_train_data.csv')
     df['Label'] = df['Label'].map({'HS':'Hate', 'Non_HS':'No Hate'})
     df = df[['Tweet','Label']]
 
