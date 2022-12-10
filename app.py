@@ -205,7 +205,12 @@ if selected == "Modeling in English Language":
             pass
         elif choice == 'Logistic Regression':
             st.success('**LR model is selected!**')
-            with st.spinner('Wait for it...'):
+            
+            progress = st.progress(0)
+            for i in range (100):
+                time.sleep(0.1)
+                progress.progress(i+1)
+                
                 lr_model()
             st.success('Done!')
         elif choice == 'Gaussian Naive Bayes':
