@@ -28,7 +28,7 @@ nltk.download('stopwords')
 
 with st.sidebar:
     selected = option_menu("Hate Speech Detection", ["Modeling in English Language", "Modeling in Malay Language", "OCR Image Detection in English Language", "OCR Image Detection in Malay Language"], 
-        icons=['cloud-upload', 'activity', 'list-task', 'list-task'], menu_icon="house", default_index=1)
+        icons=['activity', 'activity', 'photo', 'camera'], menu_icon="house", default_index=1)
 
 
 if selected == "Modeling in English Language":
