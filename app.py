@@ -419,7 +419,7 @@ if selected == "OCR Image Detection in English Language":
     st.title("OCR Image Detection in English")
     steammer = nltk.SnowballStemmer("english")
     stopword = set(stopwords.words("english"))
-    df = pd.read_csv('twitter_data.csv')
+    df = pd.read_csv('english/twitter_train_data.csv')
     df['labels'] = df['class'].map({0:'Hate', 1:'Hate', 2:'No Hate'})
     df = df[['tweet','labels']]
 
