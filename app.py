@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
@@ -210,7 +211,7 @@ if selected == "Modeling in English Language":
             for i in range (100):
                 time.sleep(0.1)
                 progress.progress(i+1)
-                
+
                 lr_model()
             st.success('Done!')
         elif choice == 'Gaussian Naive Bayes':
