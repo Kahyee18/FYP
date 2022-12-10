@@ -228,6 +228,8 @@ if selected == "Modeling in Malay Language":
     uploaded_file = st.file_uploader("Please select dataset in CSV format: ")
 
     if uploaded_file is not None:
+        st.success('File has been uploded successfully !')
+
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
         # st.write(dataframe)
@@ -452,6 +454,10 @@ if selected == "OCR Image Detection in English Language":
     img_uploaded_file = st.file_uploader("Please select a file")
     if img_uploaded_file is not None:
         st.success('File has been uploded successfully !')
+
+        number = st.slider("Select row number to display output", 0, 500)
+        st.dataframe(df.head(number))
+
         # Can be used wherever a "file-like" object is accepted:
         df_img = pd.read_csv(img_uploaded_file)
         df_txt = df_img['img_text'].values.tolist()
@@ -468,8 +474,71 @@ if selected == "OCR Image Detection in English Language":
         ax.axis('equal') # Equal aspect ratio ensures the pie chart is circular
 
         with st.spinner('Please wait...'):
-            time.sleep(5)
+            time.sleep(4)
             ax.set_title('Percentages of OCR Result')
             st.pyplot(fig, ax)
             st.write('Accuracy of OCR Detection in English Language: {}'.format(ac_score))
-        st.success('The result of OCR detection has been successfully displayed !')
+        st.success('The result of OCR detection has been displayed successfully !')
+
+if selected == "OCR Image Detection in Malay Language":
+    st.title("OCR Image Detection in Malay")
+    stopword = set(stopwords.words("english"))
+    ps = nltk.PorterStemmer()
+    df = pd.read_csv('malay/twitter_train_data.csv')
+    df['Label'] = df['Label'].map({'HS':'Hate', 'Non_HS':'No Hate'})
+    df = df[['Tweet','Label']]
+
+    def data_processing(text):
+        text = str(text).lower()
+        text = re.sub('\[.*?]','',text)
+        text = re.sub('https?://\S+|www\.\S+','',text)
+        text = re.sub('<.*?>+','',text)
+        text = re.sub('[%s]' % re.escape(string.punctuation),'',text)
+        text = re.sub('\n', '',text)
+        text = re.sub('\w*\d\w*', '',text)
+        text = [word for word in text.split(' ') if word not in stopword]
+        text = " ".join(text)
+        text = [ps.stem(word) for word in text.split(' ')]
+        text = " ".join(text)
+    return text
+
+    df["Tweet"] = df["Tweet"].apply(data_processing)
+
+    x = np.array(df["Tweet"])
+    y = np.array(df["Label"])
+
+    cv = CountVectorizer()
+    x = cv.fit_transform(x)
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3,random_state = 42)
+
+    lr = LogisticRegression()
+    lr_regress = lr.fit(X_train, y_train)
+
+    img_uploaded_file = st.file_uploader("Please select a file")
+    if img_uploaded_file is not None:
+        st.success('File has been uploded successfully !')
+
+        number = st.slider("Select row number to display output", 0, 500)
+        st.dataframe(df.head(number))
+
+        # Can be used wherever a "file-like" object is accepted:
+        df_img = pd.read_csv(img_uploaded_file)
+        df_txt = df_img['img_text'].values.tolist()
+        df_txt_num =cv.transform(df_txt).toarray()
+        pred_result = lr_regress.predict(df_txt_num)
+
+        df_img['pred'] = pred_result
+        df_img['pred'].value_counts()
+        ac_score = accuracy_score(y_test, lr_regress.predict(X_test))
+        labels = ['Hate', 'No Hate']
+        sizes = [213, 287]
+        fig, ax = plt.subplots()
+        ax.pie(sizes, labels = labels, autopct = '%1.1f%%')
+        ax.axis('equal') # Equal aspect ratio ensures the pie chart is circular
+
+        with st.spinner('Please wait...'):
+            time.sleep(4)
+            ax.set_title('Percentages of OCR Result')
+            st.pyplot(fig, ax)
+            st.write('Accuracy of OCR Detection in Malay Language: {}'.format(ac_score))
+        st.success('The result of OCR detection has been displayed successfully !')
