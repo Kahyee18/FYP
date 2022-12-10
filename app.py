@@ -451,6 +451,7 @@ if selected == "OCR Image Detection in English Language":
 
     img_uploaded_file = st.file_uploader("Please select a file")
     if img_uploaded_file is not None:
+        st.success('File has been uploded successfully !')
         # Can be used wherever a "file-like" object is accepted:
         df_img = pd.read_csv(img_uploaded_file)
         df_txt = df_img['img_text'].values.tolist()
