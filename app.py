@@ -460,7 +460,6 @@ if selected == "OCR Image Detection in English Language":
         df_img['pred'] = pred_result
         df_img['pred'].value_counts()
         ac_score = accuracy_score(y_test, lr_regress.predict(X_test))
-        st.write('Accuracy: {}'.format(ac_score))
         labels = ['Hate', 'No Hate']
         sizes = [300, 189]
         fig, ax = plt.subplots()
@@ -468,3 +467,4 @@ if selected == "OCR Image Detection in English Language":
         ax.axis('equal') # Equal aspect ratio ensures the pie chart is circular
         ax.set_title('Percentages of OCR Result')
         st.pyplot(fig, ax)
+        st.write('Accuracy of OCR Detection in English Language: {}'.format(ac_score))
