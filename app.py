@@ -27,12 +27,13 @@ nltk.download('stopwords')
 
 with st.sidebar:
     selected = option_menu("Hate Speech Detection", ["Modeling in English Language", "Modeling in Malay Language", "OCR Image Detection in English", "OCR Image Detection in Malay"], 
-        icons=['house', 'gear', 'gear', 'gear'], menu_icon="cast", default_index=1)
+        icons=['house', 'gear', 'gear', 'gear'], styles=["icons" : {"font-size":"5px"}], menu_icon="cast", default_index=1)
 
 
 if selected == "Home":
-    st.title("Train model by upload file")
-    uploaded_file = st.file_uploader("Choose a file")
+    st.title("Train model by uploading dataset")
+    uploaded_file = st.file_uploader("Please select a CSV file")
+
     if uploaded_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
