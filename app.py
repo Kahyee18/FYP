@@ -500,7 +500,7 @@ if selected == "OCR Image Detection in Malay Language":
         text = " ".join(text)
         text = [ps.stem(word) for word in text.split(' ')]
         text = " ".join(text)
-    return text
+        return text
 
     df["Tweet"] = df["Tweet"].apply(data_processing)
 
