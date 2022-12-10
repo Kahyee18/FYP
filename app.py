@@ -484,7 +484,7 @@ if selected == "OCR Image Detection in Malay Language":
     st.title("OCR Image Detection in Malay")
     stopword = set(stopwords.words("english"))
     ps = nltk.PorterStemmer()
-    df = pd.read_csv('malay/twitter_train_data.csv')
+    df = pd.read_csv('twitter_train_data.csv')
     df['Label'] = df['Label'].map({'HS':'Hate', 'Non_HS':'No Hate'})
     df = df[['Tweet','Label']]
 
