@@ -251,7 +251,7 @@ if selected == "Modeling in Malay Language":
         stopword_list = stopwords.words('indonesian')
 
         # function TF-IDF vectorizer to calculate the TF-IDF score for every word by comparing the number of times a word appears in the tweet text 
-        vectorizer = TfidfVectorizer(stop_words=stop_word_list)
+        vectorizer = TfidfVectorizer(stop_words=stopword_list)
 
         # convert text to numerical data
         X_train_cv = vectorizer.fit_transform(X_train).toarray()
