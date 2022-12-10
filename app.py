@@ -248,7 +248,7 @@ if selected == "Modeling in Malay Language":
         # random_state set to 11 and used for all process
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=11)
 
-        stopword_list = stopwords.words('Indonesian')
+        stopword_list = stopwords.words('indonesian')
 
         # function TF-IDF vectorizer to calculate the TF-IDF score for every word by comparing the number of times a word appears in the tweet text 
         vectorizer = TfidfVectorizer(stop_words=stop_word_list)
