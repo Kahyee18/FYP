@@ -69,7 +69,7 @@ if selected == "Modeling in English Language":
         # st.write(df_tfidf)
 
         # extract the result to TF-IDF_result.csv
-        df_tfidf.to_csv(r'TF-IDF_result.csv')
+        df_tfidf.to_csv(r'english/TF-IDF_result.csv')
 
         # st.write(X_train_cv.shape)
 
