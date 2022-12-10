@@ -31,16 +31,16 @@ with st.sidebar:
 
 
 if selected == "Modeling in English Language":
-    st.title("Train model by uploading dataset")
-    uploaded_file = st.file_uploader("Please select a CSV file")
+    st.title("Model training and building")
+    uploaded_file = st.file_uploader("Please select dataset in CSV format: ")
 
     if uploaded_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         df = pd.read_csv(uploaded_file)
         # st.write(dataframe)
 
-        st.markdown('label is 1 for phishing, 0 for legitimate')
-        number = st.slider("Select row number to display", 0, 500)
+        #st.markdown('label is 1 for phishing, 0 for legitimate')
+        number = st.slider("Select row number to display output", 0, 500)
         st.dataframe(df.head(number))
 
         X = df["tweet_processed"]
