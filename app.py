@@ -236,7 +236,6 @@ if selected == "Modeling in Malay Language":
         df = pd.read_csv(uploaded_file)
         # st.write(dataframe)
 
-        #st.markdown('label is 1 for phishing, 0 for legitimate')
         number = st.slider("Select row number to display output", 0, 500)
         st.dataframe(df.head(number))
 
@@ -249,7 +248,7 @@ if selected == "Modeling in Malay Language":
         # random_state set to 11 and used for all process
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=11)
 
-        stop_word_list = stopwords.words('Indonesian')
+        stopword_list = stopwords.words('Indonesian')
 
         # function TF-IDF vectorizer to calculate the TF-IDF score for every word by comparing the number of times a word appears in the tweet text 
         vectorizer = TfidfVectorizer(stop_words=stop_word_list)
