@@ -26,11 +26,11 @@ nltk.download('stopwords')
 
 
 with st.sidebar:
-    selected = option_menu("Hate Speech Detection", ["Modeling in English Language", "Modeling in Malay Language", "OCR Image Detection in English", "OCR Image Detection in Malay"], 
+    selected = option_menu("Hate Speech Detection", ["Modeling in English Language", "Modeling in Malay Language", "OCR Image Detection in English Language", "OCR Image Detection in Malay Langauge"], 
         icons=['house', 'gear', 'gear', 'gear'], menu_icon="cast", default_index=1)
 
 
-if selected == "Home":
+if selected == "Modeling in English Language":
     st.title("Train model by uploading dataset")
     uploaded_file = st.file_uploader("Please select a CSV file")
 
@@ -196,12 +196,12 @@ if selected == "Home":
 
 
         #select box
-        choice = st.selectbox("Please select your machine learning model",
+        choice = st.selectbox("Please select a machine learning model",
                             [
-                                'Please select your machine learning model','Logistic Regression','Gaussian Naive Bayes', 'Support Vector Machine'
+                                'Please select a machine learning model','Logistic Regression','Gaussian Naive Bayes', 'Support Vector Machine'
                             ]
                             )
-        if choice =='Please select your machine learning model':
+        if choice =='Please select a machine learning model':
             pass
         elif choice == 'Logistic Regression':
             st.success('**LR model is selected!**')
@@ -219,8 +219,8 @@ if selected == "Home":
                 svm_model()
             st.success('Done!')
 
-if selected == "OCR Image Detection":
-    st.title("OCR Image Detection")
+if selected == "OCR Image Detection in English Language":
+    st.title("OCR Image Detection in English")
     steammer = nltk.SnowballStemmer("english")
     stopword = set(stopwords.words("english"))
     df = pd.read_csv('twitter_data.csv')
@@ -253,7 +253,7 @@ if selected == "OCR Image Detection":
     lr = LogisticRegression()
     lr_regress = lr.fit(X_train, y_train)
 
-    img_uploaded_file = st.file_uploader("Choose a file")
+    img_uploaded_file = st.file_uploader("Please select a file")
     if img_uploaded_file is not None:
         # Can be used wherever a "file-like" object is accepted:
         df_img = pd.read_csv(img_uploaded_file)
